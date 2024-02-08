@@ -6,19 +6,31 @@
 
 from uuid import uuid4
 from datetime import datetime
+import models
 
 
 class BaseModel():
     """
         This is the Base Model Class
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
             Initializing an instance
         """
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if len(kwargs) > 0:
+            for k, v in kwargs.items():
+                if k == "created_at" or k == "updated_at":
+                    self.__dict__[k] = datetime.strptime(
+                            v, "%Y-%m-%dT%H:%M:%S.%f")
+                elif k == "__class__":
+                    pass
+                else:
+                    self.__dict__[k] = v
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def save(self):
         """
@@ -26,6 +38,7 @@ class BaseModel():
             with the current datetime
         """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """
