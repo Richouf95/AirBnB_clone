@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This is console module
+    This is the HBnB console module
 """
 
 
@@ -8,6 +8,13 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+import re
+from shlex import split
 
 
 class HBNBCommand(cmd.Cmd):
@@ -44,6 +51,18 @@ class HBNBCommand(cmd.Cmd):
             Empty command line
         """
         pass
+
+    def default(self, arg):
+        """
+            Default action when command is invalid
+        """
+        allow_args = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "update": self.do_update,
+            "destroy": self.do_destroy,
+            "count": self.do_count
+        }
 
     def do_create(self, arg):
         """
@@ -159,15 +178,15 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
                 return False
 
-        if attribute in unauthorized:
-            return False
-
         instance_target = data[key]
         attribute = command_args[2]
 
+        if attribute in unauthorized:
+            return False
+
         if args_length == 4:
             value = command_args[3]
-            if attribute in instance_target.keys():
+            if attribute in instance_target.__class__.__dict__.keys():
                 parse_to = type(instance_target.__class__.__dict__[attribute])
                 instance_target.__dict__[attribute] = parse_to(value)
             else:
