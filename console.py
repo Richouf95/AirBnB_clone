@@ -79,6 +79,7 @@ class HBNBCommand(cmd.Cmd):
                         "{} {}".format(args_splited[0], command[1])
                         )
                 return run_command
+        print("*** Unknown syntax: {}".format(arg))
 
     def do_create(self, arg):
         """
@@ -133,8 +134,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """
-            Prints all string representation of all instances
-            based or not on the class name
+            Prints all string representation of all or specific instances
         """
         command_args = arg.split()
         data = storage.all()
@@ -156,7 +156,6 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """
             Updates an instance based on the class name and id
-            by adding or updating attribute
         """
 
         is_object = re.search(r"\{(.*?)\}", arg)

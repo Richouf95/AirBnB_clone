@@ -27,9 +27,10 @@ class BaseModel():
                 else:
                     self.__dict__[k] = v
         else:
+            current_time = datetime.now()
             self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            self.created_at = current_time
+            self.updated_at = current_time
             models.storage.new(self)
 
     def save(self):
