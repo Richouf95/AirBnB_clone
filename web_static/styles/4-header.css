@@ -1,0 +1,19 @@
+header {
+    background-color: #ffffff;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #cccccc;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#airBnB_Header_Logo {
+    background-image: url(../images/logo.png);
+    height: 60px;
+    width: 150px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
