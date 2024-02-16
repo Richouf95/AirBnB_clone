@@ -17,6 +17,7 @@
     margin-right: 30px;
     cursor: pointer;
     float: right;
+    margin-top: 11px;
 }
 
 .filters button:hover {
