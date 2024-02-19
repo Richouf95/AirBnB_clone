@@ -31,7 +31,7 @@
     padding-left: 30px;
 }
 
-.locations {
+.locations:nth-of-type(1) {
     border-right: 1px solid #dddddd;
 }
 

@@ -2,19 +2,55 @@
 <html lang="en">
   <head>
     <title>AirBnB clone</title>
-    <link rel="stylesheet" href="styles/4-common.css">
-    <link rel="stylesheet" href="styles/3-header.css">
-    <link rel="stylesheet" href="styles/3-footer.css">
-    <link rel="stylesheet" href="styles/6-filters.css">
-    <link rel="stylesheet" href="styles/101-places.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/102-common.css">
+    <link rel="stylesheet" href="styles/102-header.css">
+    <link rel="stylesheet" href="styles/102-footer.css">
+    <link rel="stylesheet" href="styles/102-filters.css">
+    <link rel="stylesheet" href="styles/102-places.css">
     <link rel="icon" type="image/x-icon" href="./images/icon.png">
   </head>
   <body>
     <header>
+      <div class="menuButton">
+        <input type="checkbox" id="menuButton">
+        <label for="menuButton" id="menuButtonLabel">fff</label>
+        <div class="mobileMenu">
+          <div class="mobileMenulocations">
+            <h3>States</h3>
+            <ul class="mobileMenupopover">
+              <li>
+                <h2 class="">California :</h2>
+                <ul class="mobileMenusub_popover">
+                  <li>San Fransico</li>
+                  <li>Los Altos</li>
+                </ul>              
+              </li>
+              <li>
+                <h2 class="">Arizona :</h2>
+                <ul class="mobileMenusub_popover">
+                  <li>Page</li>
+                  <li>Page2</li>
+                </ul>   
+              </li>
+            </ul>
+          </div>
+          <div class="mobileMenulocations">
+            <h3>Amenities</h3>
+            <ul class="mobileMenupopover">
+              <li>Internet</li>
+              <li>TV</li>
+              <li>Kitchen</li>
+              <li>Iron</li>
+            </ul>
+          </div>
+          <button>Search</button>
+        </div>
+      </div>
       <div id="airBnB_Header_Logo"></div>
     </header>
     <div class="container">
-      <section class="filters">
+      <section class="filters" aria-hidden="false">
         <div class="locations">
           <h3>States</h3>
           <h4>California, Arizona...</h4>
