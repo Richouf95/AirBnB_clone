@@ -24,7 +24,7 @@
     background-color: hsla(358, 100%, 68%, 0.9);
 }
 
-.locations, .amenities{
+.locations{
     height: 100%;
     width: 25%;
     float: left;
@@ -54,6 +54,8 @@ h4 {
 
 .popover {
     visibility: hidden;
+    position: relative;
+    background-color: #FAFAFA;
     color: #fafafa;
     border: 1px solid #dddddd;
     border-radius: 4px;
@@ -66,11 +68,9 @@ h4 {
     visibility: visible;
 }
 
-.amenities:hover > .popover {
-    visibility: visible;
-}
-
 .sub_popover {
     list-style: none;
     margin-bottom: 20px;
+    margin-left: 20px;
+    line-height: 25px;
 }

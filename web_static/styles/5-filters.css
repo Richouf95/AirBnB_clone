@@ -24,7 +24,7 @@
     background-color: hsla(358, 100%, 68%, 0.9);
 }
 
-.locations, .amenities{
+.locations{
     height: 100%;
     width: 25%;
     float: left;
